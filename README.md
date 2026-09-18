@@ -1,4 +1,4 @@
-# twkikoo
+# caski
 
 Loja online de peças artesanais em resina — **mockup interativo**, sem backend.
 
@@ -27,7 +27,7 @@ Dá acesso às sete vistas, aos modais, ao cesto cheio e ao ecrã de loading.
 | `/` | Home — hero com parallax, história, destaques, secção do gato, processo |
 | `/loja` | Catálogo com filtros por categoria e por cor, ordenação e skeletons |
 | `/loja/:slug` | Página de produto — galeria, quantidade, adicionar ao cesto |
-| `/diario` | Galeria em masonry (fotos, peças, cores, citações) com lightbox |
+| `/diario` | Caderno de bancada — entradas datadas num mosaico de 12 colunas |
 | `/checkout` | Checkout em três passos com resumo da encomenda |
 | `/encomenda/:code` | Seguimento da encomenda com timeline (dá para simular passos) |
 | `/apoio` | FAQ, chat de apoio e formulário de contacto |

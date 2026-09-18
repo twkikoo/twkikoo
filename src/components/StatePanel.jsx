@@ -21,7 +21,7 @@ const VIEWS = [
   ["Página de produto", "/loja/conjunto-gota-jade"],
   ["Diário / galeria", "/diario"],
   ["Checkout", "/checkout"],
-  ["Seguir encomenda", "/encomenda/KIKO-4821"],
+  ["Seguir encomenda", "/encomenda/CK-4821"],
   ["Apoio e FAQ", "/apoio"],
 ];
 

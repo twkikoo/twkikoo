@@ -130,7 +130,7 @@ function Hero() {
             ].map(([value, label]) => (
               <div key={label}>
                 <dt className="font-display text-3xl tracking-[-0.02em]">{value}</dt>
-                <dd className="mt-1 max-w-24 text-xs leading-snug text-ink-mute">{label}</dd>
+                <dd className="label mt-1.5 max-w-24 leading-relaxed text-ink-mute">{label}</dd>
               </div>
             ))}
           </motion.dl>
@@ -320,7 +320,7 @@ function Process() {
 }
 
 function JournalStrip() {
-  const shots = JOURNAL.filter((post) => post.kind === "photo");
+  const shots = JOURNAL.filter((entry) => entry.kind === "photo");
   return (
     <section className="mt-32">
       <div className="mx-auto max-w-[1280px] px-5 sm:px-8">
@@ -338,16 +338,20 @@ function JournalStrip() {
         </Reveal>
       </div>
       <div className="no-scrollbar mt-10 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 sm:px-8">
-        {[...shots, ...shots].slice(0, 6).map((post, index) => (
+        {shots.map((post, index) => (
           <motion.figure
             key={`${post.id}-${index}`}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-10%" }}
             transition={{ ...spring, delay: (index % 3) * 0.06 }}
-            className="w-[76vw] shrink-0 snap-start sm:w-[340px]"
+            className="w-[76vw] shrink-0 snap-start sm:w-[360px]"
           >
-            <div className="aspect-[4/5] overflow-hidden rounded-[1.75rem] shadow-soft">
+            <p className="label mb-3 flex items-baseline justify-between gap-3 border-t border-ink/12 pt-3 text-ink-mute">
+              <span className="text-ink">N.º {String(post.no).padStart(3, "0")}</span>
+              <span>{post.place}</span>
+            </p>
+            <div className="aspect-[4/5] overflow-hidden rounded-[1.5rem] ring-1 ring-ink/10">
               <motion.img
                 src={post.src}
                 alt={post.caption}
@@ -356,7 +360,7 @@ function JournalStrip() {
                 className="size-full object-cover"
               />
             </div>
-            <figcaption className="mt-3 px-1 text-[13px] text-ink-mute">{post.caption}</figcaption>
+            <figcaption className="mt-3 text-[13px] leading-relaxed text-ink-soft">{post.caption}</figcaption>
           </motion.figure>
         ))}
       </div>

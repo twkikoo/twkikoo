@@ -105,7 +105,7 @@ export function Badge({ children, tone = "sand", upper = true, className }) {
     <span
       className={cn(
         "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[11px] font-medium",
-        upper ? "tracking-[0.06em] uppercase" : "tracking-normal",
+        upper ? "font-mono text-[10px] tracking-[0.08em] uppercase" : "tracking-normal",
         tones[tone],
         className,
       )}
@@ -116,7 +116,7 @@ export function Badge({ children, tone = "sand", upper = true, className }) {
 }
 
 /** Fade + rise on first scroll into view. Fires once; re-animating on scroll-back is noise. */
-export function Reveal({ children, delay = 0, className, y = 22 }) {
+export function Reveal({ children, delay = 0, className, style, y = 22 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-12% 0px -8% 0px" });
   return (
@@ -126,6 +126,7 @@ export function Reveal({ children, delay = 0, className, y = 22 }) {
       animate={inView ? { opacity: 1, y: 0, filter: "blur(0px)" } : {}}
       transition={{ duration: 0.7, ease, delay }}
       className={className}
+      style={style}
     >
       {children}
     </motion.div>

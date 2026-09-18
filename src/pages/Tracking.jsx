@@ -12,7 +12,7 @@ import { cn, eur } from "../lib/utils";
 
 /** Anyone landing on a tracking link without having ordered gets a plausible one. */
 const DEMO = {
-  code: "KIKO-4821",
+  code: "CK-4821",
   placedAt: new Date(Date.now() - 1000 * 60 * 60 * 26),
   lines: [
     { slug: "conjunto-gota-jade", qty: 1, product: PRODUCTS.find((p) => p.slug === "conjunto-gota-jade") },

@@ -22,7 +22,7 @@ const COLUMNS = [
     links: [
       ["Diário do atelier", "/diario"],
       ["Perguntas frequentes", "/apoio"],
-      ["Seguir encomenda", "/encomenda/KIKO-4821"],
+      ["Seguir encomenda", "/encomenda/CK-4821"],
       ["Falar connosco", "/apoio"],
     ],
   },

@@ -32,7 +32,7 @@ function Gallery({ product }) {
 
   return (
     <div className="lg:sticky lg:top-24">
-      <div className="relative aspect-square overflow-hidden rounded-[2.5rem] shadow-lift">
+      <div className="relative aspect-square overflow-hidden rounded-[2rem] ring-1 ring-ink/10">
         <AnimatePresence mode="popLayout" initial={false}>
           <motion.div
             key={view.id}
@@ -173,16 +173,24 @@ export function Product() {
           transition={{ ...springSoft, delay: 0.14 }}
           className="pb-4"
         >
-          <p className="eyebrow mb-3">{product.category}</p>
+          <p className="eyebrow mb-3">
+            {product.ref}
+            <span className="mx-2 opacity-50">·</span>
+            {product.category}
+          </p>
           <h1 className="font-display text-[clamp(2.25rem,4.5vw,3.5rem)] leading-[1] tracking-[-0.03em] text-balance">
             {product.name}
           </h1>
           <p className="mt-4 text-lg text-ink-soft">{product.tagline}</p>
 
-          <div className="mt-7 flex items-center gap-4">
+          <div className="mt-7 flex flex-wrap items-baseline gap-x-5 gap-y-2">
             <span className="font-display text-3xl tabular-nums">{eur(product.price)}</span>
-            <span className="text-[13px] text-ink-mute">
-              feito em {product.made} · {product.category === "conjuntos" ? "colar + brincos" : "par completo"}
+            <span className="label text-ink-mute">
+              {product.batch}
+              <span className="mx-2 opacity-50">·</span>
+              feito em {product.made}
+              <span className="mx-2 opacity-50">·</span>
+              {product.category === "conjuntos" ? "colar + brincos" : "par completo"}
             </span>
           </div>
 

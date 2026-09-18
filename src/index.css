@@ -1,38 +1,38 @@
 @import "tailwindcss";
 
 @theme {
-  /* ---- Surfaces: warm paper, sand, clay ---- */
-  --color-cream: #fbf6ee;
-  --color-paper: #fffdf9;
-  --color-sand: #f2e9dc;
-  --color-linen: #e8dcca;
-  --color-clay: #d8c7b0;
+  /* ---- Surfaces: paper, clay, linen. Warmed away from neutral beige. ---- */
+  --color-paper: #fdfaf4;
+  --color-cream: #f6efe3;
+  --color-sand: #ebdfcc;
+  --color-linen: #e0d0b8;
+  --color-clay: #d3bd9d;
 
-  /* ---- Ink ---- */
-  --color-ink: #221e1a;
-  --color-ink-soft: #554c43;
-  --color-ink-mute: #8b8076;
+  /* ---- Ink: bark brown, never near-black — a warm ground wants a warm dark ---- */
+  --color-ink: #2b2318;
+  --color-ink-soft: #5e5243;
+  --color-ink-mute: #938673;
 
-  /* ---- Resin accents (sampled from the pieces) ---- */
-  --color-ember: #d1462f;
-  --color-honey: #e7a11a;
+  /* ---- The one bold colour, plus the resin hues the pieces are actually made in ---- */
+  --color-ember: #be4a2b;
+  --color-honey: #dc9a15;
   --color-jade: #17877a;
   --color-cobalt: #1580ce;
   --color-violet: #3e1ba6;
   --color-blush: #e8917f;
   --color-gold: #c9a227;
 
-  /* ---- Type ---- */
+  /* ---- Type: a display serif, a grotesk, and a mono for the atelier's record-keeping ---- */
   --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
 
-  /* ---- Radii ---- */
   --radius-card: 1.75rem;
 
   /* ---- Shadows: warm, never grey ---- */
-  --shadow-soft: 0 1px 2px rgb(88 64 40 / 0.05), 0 8px 24px -12px rgb(88 64 40 / 0.18);
-  --shadow-lift: 0 2px 4px rgb(88 64 40 / 0.06), 0 24px 48px -20px rgb(88 64 40 / 0.28);
-  --shadow-float: 0 32px 64px -24px rgb(88 64 40 / 0.34);
+  --shadow-soft: 0 1px 2px rgb(80 58 34 / 0.05), 0 8px 24px -12px rgb(80 58 34 / 0.18);
+  --shadow-lift: 0 2px 4px rgb(80 58 34 / 0.06), 0 24px 48px -20px rgb(80 58 34 / 0.28);
+  --shadow-float: 0 32px 64px -24px rgb(80 58 34 / 0.34);
 }
 
 @layer base {
@@ -48,7 +48,7 @@
     background-color: var(--color-cream);
     color: var(--color-ink);
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv05";
+    font-feature-settings: "ss01";
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
@@ -86,12 +86,28 @@
   }
 }
 
+/* Catalogue labels: dates, references, measurements. Set in mono so the
+   atelier's record-keeping reads as record-keeping and not as decoration. */
 @utility eyebrow {
+  font-family: var(--font-mono);
   font-size: 0.6875rem;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-ink-mute);
+}
+
+@utility label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  font-weight: 400;
+  font-feature-settings: normal;
+}
+
+/* A hairline that reads as a ruled sheet rather than a border. */
+@utility rule {
+  border-top: 1px solid color-mix(in oklab, var(--color-ink) 12%, transparent);
 }
 
 /* Paper grain — keeps large cream fields from reading as flat digital beige */
@@ -157,5 +173,16 @@
   .animate-marquee,
   .skeleton::after {
     animation: none;
+  }
+}
+
+/* The journal mosaic: one column until there is room for the twelve-column
+   composition, where each entry takes the width its own `--span` asks for. */
+.entry {
+  grid-column: 1 / -1;
+}
+@media (min-width: 64rem) {
+  .entry {
+    grid-column: span var(--span) / span var(--span);
   }
 }

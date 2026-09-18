@@ -197,7 +197,7 @@ export function Shop() {
           </div>
         </div>
 
-        <div className="mt-3 flex items-center gap-3 text-xs text-ink-mute">
+        <div className="label mt-3 flex items-center gap-3 text-ink-mute">
           <AnimatePresence mode="wait" initial={false}>
             <motion.span
               key={`${results.length}-${loading}`}

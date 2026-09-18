@@ -31,5 +31,5 @@ export function seeded(seed) {
 
 export function orderCode() {
   const n = Math.floor(1000 + Math.random() * 8999);
-  return `KIKO-${n}`;
+  return `CK-${n}`;
 }

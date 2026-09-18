@@ -27,13 +27,17 @@ export function ProductCard({ product, index = 0 }) {
         <motion.div
           animate={{ y: hover ? -6 : 0 }}
           transition={spring}
-          className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] shadow-soft"
+          className={cn(
+            "relative aspect-[4/5] overflow-hidden rounded-[1.5rem] ring-1 ring-ink/10 transition-shadow",
+            hover ? "shadow-lift" : "shadow-none",
+          )}
           style={{
             background: `radial-gradient(120% 90% at 32% 16%, #FFFDF8 0%, ${product.art.from}12 52%, ${product.art.to}26 100%)`,
           }}
         >
+          <span className="label absolute top-4 left-4 z-10 text-ink-mute">{product.ref}</span>
           {product.badge && (
-            <div className="absolute top-4 left-4 z-10">
+            <div className="absolute top-3.5 right-4 z-10">
               <Badge tone="ink">{product.badge}</Badge>
             </div>
           )}
@@ -75,7 +79,7 @@ export function ProductCard({ product, index = 0 }) {
         <div className="px-1 pt-4">
           <div className="flex items-start justify-between gap-3">
             <h3 className="text-[15px] leading-snug font-medium tracking-[-0.01em]">{product.name}</h3>
-            <span className="shrink-0 text-[15px] tabular-nums">{eur(product.price)}</span>
+            <span className="shrink-0 font-mono text-[13px] tabular-nums">{eur(product.price)}</span>
           </div>
           <p className="mt-1 line-clamp-1 text-[13px] text-ink-mute">{product.tagline}</p>
         </div>

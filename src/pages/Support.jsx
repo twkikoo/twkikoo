@@ -10,7 +10,7 @@ import { useStore } from "../lib/store";
 import { cn, sleep } from "../lib/utils";
 
 const CARDS = [
-  { icon: Icon.Truck, title: "Onde está a minha encomenda?", note: "Siga-a passo a passo com o código KIKO-••••", to: "/encomenda/KIKO-4821", cta: "Seguir encomenda" },
+  { icon: Icon.Truck, title: "Onde está a minha encomenda?", note: "Siga-a passo a passo com o código CK-••••", to: "/encomenda/CK-4821", cta: "Seguir encomenda" },
   { icon: Icon.Spark, title: "Quero uma peça só minha", note: "Cor, flor, tamanho — respondemos em 24 h com um esboço", to: "#chat", cta: "Pedir um orçamento" },
   { icon: Icon.Heart, title: "Trocas e devoluções", note: "14 dias, sem perguntas difíceis", to: "#faq", cta: "Como funciona" },
 ];
