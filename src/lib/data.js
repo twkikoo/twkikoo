@@ -1,3 +1,7 @@
+import atelier01 from "../assets/atelier-01.webp";
+import atelier02 from "../assets/atelier-02.webp";
+import atelier03 from "../assets/atelier-03.webp";
+
 export const BRAND = {
   name: "twkikoo",
   cat: "Kiko",
@@ -27,7 +31,7 @@ export const PRODUCTS = [
     price: 1800,
     badge: "Mais vendido",
     art: { shape: "donut", from: "#F2573E", to: "#B4241A", accent: "#FFD3C6", hardware: "gold" },
-    photo: "/media/atelier-01.webp",
+    photo: atelier01,
     tagline: "Vermelho de cereja madura, em argola dourada.",
     story:
       "A primeira peça que fizemos duas vezes: a primeira saiu com uma bolha no meio, a segunda saiu perfeita. Ficámos com as duas. O vermelho é misturado à mão, pigmento a pigmento, até ficar com aquele tom de compota que fica bem em qualquer pele.",
@@ -40,7 +44,7 @@ export const PRODUCTS = [
     category: "brincos",
     price: 1950,
     art: { shape: "donut", from: "#FFE9A8", to: "#F4C445", accent: "#E23B22", speckles: 18, hardware: "gold" },
-    photo: "/media/atelier-01.webp",
+    photo: atelier01,
     tagline: "Mel translúcido com pintas que não se repetem.",
     story:
       "Cada ponto vermelho é colocado com um palito, um a um, enquanto a resina ainda escorre. É por isso que não existem dois pares iguais — e é por isso que demoramos uma tarde inteira a fazer seis.",
@@ -53,7 +57,7 @@ export const PRODUCTS = [
     category: "brincos",
     price: 1750,
     art: { shape: "flower", from: "#FFE08A", to: "#EFB211", accent: "#FFF3CE", hardware: "gold" },
-    photo: "/media/atelier-01.webp",
+    photo: atelier01,
     tagline: "Seis pétalas, um miolo vazado, luz a passar.",
     story:
       "Feita num molde que desenhámos à mão e refizemos quatro vezes até as pétalas ficarem simétricas o suficiente para parecerem naturais — e tortas o suficiente para parecerem feitas por pessoas.",
@@ -66,7 +70,7 @@ export const PRODUCTS = [
     category: "brincos",
     price: 1650,
     art: { shape: "star", from: "#FFD979", to: "#E39412", accent: "#FFF0C8", speckles: 10, hardware: "gold" },
-    photo: "/media/atelier-01.webp",
+    photo: atelier01,
     tagline: "A estrela — porque cá em casa já há uma.",
     story:
       "O Kiko dormiu em cima do molde destas antes de secarem. Ficou uma marca de pata numa delas. Essa não está à venda.",
@@ -80,7 +84,7 @@ export const PRODUCTS = [
     price: 3900,
     badge: "Conjunto",
     art: { shape: "drop", from: "#2AA394", to: "#0E6F63", accent: "#FFFFFF", flowers: 7, hardware: "silver" },
-    photo: "/media/atelier-02.webp",
+    photo: atelier02,
     tagline: "Colar e brincos com gipsófila verdadeira.",
     story:
       "As flores são apanhadas, prensadas durante duas semanas entre páginas de um dicionário de 1982 e só depois entram na resina. O verde é feito em camadas: primeiro o fundo, depois as flores, depois o véu por cima.",
@@ -97,7 +101,7 @@ export const PRODUCTS = [
     category: "colares",
     price: 2600,
     art: { shape: "drop", from: "#2AA394", to: "#0E6F63", accent: "#FFFFFF", flowers: 7, hardware: "silver" },
-    photo: "/media/atelier-02.webp",
+    photo: atelier02,
     tagline: "Um pequeno jardim suspenso ao pescoço.",
     story:
       "A peça que mais nos pedem para repetir. Cada ramo de gipsófila é escolhido pelo desenho que faz contra a luz — o que quer dizer que ficamos muito tempo à janela com flores na mão.",
@@ -110,7 +114,7 @@ export const PRODUCTS = [
     category: "brincos",
     price: 1900,
     art: { shape: "drop", from: "#2AA394", to: "#0E6F63", accent: "#FFFFFF", flowers: 5, hardware: "silver" },
-    photo: "/media/atelier-02.webp",
+    photo: atelier02,
     tagline: "Leves ao ponto de dar para esquecer que os temos.",
     story:
       "Pesam menos de dois gramas cada. Feitos para quem tira os brincos ao fim do dia e se lembra que ainda os tinha postos.",
@@ -124,7 +128,7 @@ export const PRODUCTS = [
     price: 2100,
     badge: "Novo",
     art: { shape: "disc", from: "#3BB6F0", to: "#0F74C4", accent: "#3E1BA6", satellite: true, hardware: "gold" },
-    photo: "/media/atelier-03.webp",
+    photo: atelier03,
     tagline: "Um disco azul e um ponto violeta a acompanhar.",
     story:
       "Nasceu de um erro: sobrou resina violeta de outra peça e, em vez de a deitar fora, fizemos discos minúsculos. Ficaram a pendurar por baixo dos azuis e passaram a ser o modelo de que mais gostamos.",
@@ -190,7 +194,7 @@ export const JOURNAL = [
   {
     id: "p1",
     kind: "photo",
-    src: "/media/atelier-01.webp",
+    src: atelier01,
     span: "tall",
     caption: "Domingo de manhã, a bancada toda em vermelho e amarelo.",
     likes: 214,
@@ -205,7 +209,7 @@ export const JOURNAL = [
   {
     id: "p3",
     kind: "photo",
-    src: "/media/atelier-02.webp",
+    src: atelier02,
     span: "tall",
     caption: "Gipsófila prensada há duas semanas. Valeu a espera.",
     likes: 389,
@@ -236,7 +240,7 @@ export const JOURNAL = [
   {
     id: "p7",
     kind: "photo",
-    src: "/media/atelier-03.webp",
+    src: atelier03,
     span: "tall",
     caption: "Azul sobre azul, e um violeta que sobrou de outra peça.",
     likes: 276,

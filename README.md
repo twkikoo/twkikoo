@@ -34,6 +34,21 @@ Dá acesso às sete vistas, aos modais, ao cesto cheio e ao ecrã de loading.
 
 Autenticação e cesto são *overlays*, disponíveis em qualquer rota.
 
+## Publicar
+
+O build usa caminhos relativos (`base: "./"` no Vite) e o router descobre sozinho
+em que sub-caminho o `index.html` está, por isso `dist/` funciona tanto na raiz de
+um domínio como numa sub-pasta — por exemplo em GitHub Pages:
+
+```bash
+npm run build     # → dist/, pronto a servir de qualquer sub-caminho
+npm run preview   # serve o dist/ localmente para confirmar
+```
+
+Ligações directas (`/loja/estrela-ambar` escrito na barra do browser) exigem que o
+servidor devolva o `index.html` para qualquer rota; num host estático sem essa
+configuração entra-se pela raiz e navega-se dentro da aplicação.
+
 ## Decisões
 
 **O loading é uma pata a amassar pão.** `PawLoader` não é um ciclo de keyframes: cada

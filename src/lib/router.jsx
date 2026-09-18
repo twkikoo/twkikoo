@@ -36,27 +36,51 @@ function match(pathname) {
   return { name: "notFound", path: pathname, params: {} };
 }
 
+/**
+ * Where index.html actually lives. Served from "/" this is empty; served from a
+ * sub-path (a preview host, a project page) it is that prefix, and every route
+ * hangs off it. Detected by asking whether the landing path is a route we know.
+ */
+const BASE = (() => {
+  const here = window.location.pathname.replace(/\/index\.html$/, "").replace(/\/+$/, "");
+  return here && match(here).name === "notFound" ? here : "";
+})();
+
+/** A route path as the browser should see it. */
+export const href = (path) => BASE + path;
+
+/** A browser path as the app should see it. */
+function locate(pathname) {
+  const rest = BASE && pathname.startsWith(BASE) ? pathname.slice(BASE.length) : pathname;
+  return match(rest || "/");
+}
+
 const RouterContext = createContext(null);
 
 export function RouterProvider({ children, onNavigate }) {
-  const [route, setRoute] = useState(() => match(window.location.pathname));
+  const [route, setRoute] = useState(() => locate(window.location.pathname));
   const pending = useRef(0);
 
   useEffect(() => {
-    const onPop = () => setRoute(match(window.location.pathname));
+    const onPop = () => setRoute(locate(window.location.pathname));
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
   }, []);
 
   const navigate = useCallback(
     async (to, { replace = false } = {}) => {
-      if (to === window.location.pathname) return;
+      const target = href(to);
+      if (target === window.location.pathname) return;
       // The host decides how long the paw kneads before the next page lands.
       const ticket = ++pending.current;
       await onNavigate?.(to);
       // A newer navigation started while this one was loading — let that one win.
       if (ticket !== pending.current) return;
-      window.history[replace ? "replaceState" : "pushState"]({}, "", to);
+      try {
+        window.history[replace ? "replaceState" : "pushState"]({}, "", target);
+      } catch {
+        // Some sandboxed hosts deny the history API; route in memory instead.
+      }
       setRoute(match(to));
       window.scrollTo({ top: 0, behavior: "instant" });
     },
@@ -78,7 +102,7 @@ export function Link({ to, children, className, onClick, ...rest }) {
   const { navigate } = useRouter();
   return (
     <a
-      href={to}
+      href={href(to)}
       className={className}
       onClick={(event) => {
         if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;

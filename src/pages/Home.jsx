@@ -5,6 +5,8 @@ import { ProductCard } from "../components/ProductCard";
 import { ResinPiece } from "../components/ResinPiece";
 import { CatMark, Icon } from "../components/icons";
 import { Badge, Button, Marquee, Reveal, RevealGroup, RevealItem, SectionHead } from "../components/ui";
+import atelier01 from "../assets/atelier-01.webp";
+import atelier02 from "../assets/atelier-02.webp";
 import { BRAND, JOURNAL, PRODUCTS } from "../lib/data";
 import { ease, spring, springSoft } from "../lib/motion";
 import { Link } from "../lib/router";
@@ -142,7 +144,7 @@ function Hero() {
             className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] bg-sand shadow-lift"
           >
             <img
-              src="/media/atelier-01.webp"
+              src={atelier01}
               alt="Brincos de resina vermelhos e amarelos pendurados num expositor de madeira"
               className="size-full object-cover"
             />
@@ -165,7 +167,7 @@ function Story() {
         <Reveal>
           <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] shadow-lift sm:aspect-[5/4]">
             <img
-              src="/media/atelier-02.webp"
+              src={atelier02}
               alt="Conjunto de colar e brincos em resina verde com gipsófila seca"
               className="size-full object-cover"
             />
